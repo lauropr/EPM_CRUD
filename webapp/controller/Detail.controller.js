@@ -182,7 +182,7 @@ sap.ui.define(
 
             }else{
 
-                
+
                 oModel.create("/BusinessPartners", oDados, {
                     success: function(oData){
                         MessageToast.show("Parceiro " + oData.PartnerId + " criado!");
@@ -190,7 +190,8 @@ sap.ui.define(
                         oRouter.navTo("RouteMaster", true);
                     },
                     error: function(oError){
-                        MessageBox.error("Erro ao criar parceiro");
+                        var oErro = JSON.parse(oError.responseText);
+                        MessageBox.error("Erro ao criar" + oErro.error.message.value);
                         oForm.setBusy(false);    
                     }
                 });
@@ -210,6 +211,20 @@ sap.ui.define(
 
                 var oView = this.getView();
                 oView.setModel(oModeloBotao, "botoes");
+            },
+
+            aoDigitarCEP: function(oEvent){
+                //acessa o valor do Input
+                let sValor = oEvent.getParameter("value");
+                //resgata o Input
+                var oInput = oEvent.getSource();
+
+                if(sValor.length !== 9){
+                    oInput.setValueState(sap.ui.core.ValueState.Error);
+                }else{
+                    oInput.setValueState(sap.ui.core.ValueState.None);
+                }
+
             },
 
 

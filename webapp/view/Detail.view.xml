@@ -68,7 +68,7 @@
                         <m:Input value="{Street}" editable="{editavel>/editavel}"/>
                             
                         <m:Label class="sapUiTinyMarginTop" text="Código Postal" />
-                        <m:Input value="{ZipCode}" editable="{editavel>/editavel}"/>
+                        <m:Input value="{ZipCode}" editable="{editavel>/editavel}" liveChange="aoDigitarCEP" />
     
                     </content>
                 </SimpleForm>
