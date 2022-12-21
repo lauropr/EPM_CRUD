@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Países"
+		class="sapUiPopupWithPadding"
+		items="{ path: '/I_Country',
+                 parameters: {
+                    expand: 'to_Text'
+                 } }"
+		search=""
+		confirm="aoSelecionarPais"
+		cancel="">
+		<StandardListItem
+			title="{Country}" />            
+			<!-- description="{to_Text/results/CountryName}" /> -->
+	</SelectDialog>
+</core:FragmentDefinition>

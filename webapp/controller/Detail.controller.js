@@ -1,12 +1,12 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller",
+        "./BaseController",
         "sap/ui/model/json/JSONModel",
         "sap/m/MessageBox",
-        "sap/m/MessageToast"       
-    ], function (Controller, JSONModel, MessageBox, MessageToast) {
+        "sap/m/MessageToast",              
+    ], function (BaseController, JSONModel, MessageBox, MessageToast) {
         "use strict";
-        return Controller.extend("tra0399.epm0399.controller.Main", {     
+        return BaseController.extend("tra0399.epm0399.controller.Main", {     
 
             onInit: function() {
 
@@ -227,7 +227,6 @@ sap.ui.define(
 
             },
 
-
             setarPropriedadeModelo: function(sModelo, sPropriedade, bValor){
                 var oModel = this.getView().getModel(sModelo);
                 //validar que a instância não é undefined
@@ -236,6 +235,5 @@ sap.ui.define(
                 }
 
             }
-
         });
     });

@@ -53,7 +53,8 @@
 
 
                         <m:Label class="sapUiTinyMarginTop" text="País" />
-                        <m:Input value="{Country}" editable="{editavel>/editavel}"/>
+                        <m:Input value="{Country}" editable="{editavel>/editavel}"
+                                 showValueHelp="true" valueHelpRequest="ajudaPesquisaPais" />
 
                         <m:Label class="sapUiTinyMarginTop" text="Bairro" />
                         <m:Input value="{District}" editable="{editavel>/editavel}"/>

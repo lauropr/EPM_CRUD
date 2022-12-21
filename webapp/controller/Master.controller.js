@@ -1,11 +1,12 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller"
-    ], function (Controller) {
+        "./BaseController",
+        "sap/ui/model/Filter",
+        "sap/ui/model/FilterOperator"
+    ], function (BaseController, Filter, FilterOperator) {
         "use strict";
-        return Controller.extend("tra0399.epm0399.controller.Main", {     
+        return BaseController.extend("tra0399.epm0399.controller.Main", {     
             onInit: function(){
-
             },
 
             aoPressionarItem: function(oEvent){
@@ -31,7 +32,31 @@ sap.ui.define(
             aoAdicionar: function(oEvent){
                 let oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("RotaAdicionar");
+            },
+
+            aoPesquisar: function(oEvent){
+
+                //acessa a string de busca
+                var sPesquisa = oEvent.getParameter("newValue");    
+
+                //acessa a view, depois a tabela, depois o contexto de vínculo da agregação "items"
+                var oBinding = this.getView().byId("parceiros").getBinding("items");
+
+                //monta o objeto de filtro
+                var oFilter = new Filter({
+                    path: "PartnerName1",
+                    operator: FilterOperator.Contains,
+                    value1: sPesquisa
+                });
+
+                //monta array de filtros
+                var aFilters = [ oFilter ];
+
+                //executa o filtro
+                oBinding.filter(aFilters);
+
             }
+
 
             });
         });

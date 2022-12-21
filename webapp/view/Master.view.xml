@@ -5,6 +5,11 @@
         <content>
             <Table id="parceiros"
                     items="{/BusinessPartners}">
+                <headerToolbar>
+                    <Toolbar>
+                        <SearchField placeholder="Nome de parceiro..." width="25%" liveChange="aoPesquisar" />
+                    </Toolbar>
+                </headerToolbar>
                 <columns>
                     <Column>
                         <Label text="Nome" />
